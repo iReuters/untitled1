@@ -1,5 +1,7 @@
 package com.company;
 
+import org.jetbrains.annotations.NotNull;
+
 public class JosephuCircle {
     public static void main(String[] args) {
         DoubleLinkedList list = new DoubleLinkedList();
@@ -73,7 +75,7 @@ class DoubleLinkedList{
         return head;
     }
 
-    public DoubleNode createCircleLinkedList(int[] array) {
+    public DoubleNode createCircleLinkedList(int @NotNull [] array) {
         DoubleNode last = null;
         for (int a: array) {
             last = add(a);
