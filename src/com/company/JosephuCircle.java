@@ -3,7 +3,9 @@ package com.company;
 public class JosephuCircle {
     public static void main(String[] args) {
         DoubleLinkedList list = new DoubleLinkedList();
-        josephu(list.createCircleLinkedList(100), 6);
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+
+        josephu(list.createCircleLinkedList(array), 3);
 
     }
 
@@ -51,7 +53,6 @@ class DoubleNode{
 
 class DoubleLinkedList{
     private final DoubleNode head = new DoubleNode(0);
-
     public DoubleNode add(int n) {
         DoubleNode node = new DoubleNode(n);
         if (head.next == null) {
@@ -72,10 +73,10 @@ class DoubleLinkedList{
         return head;
     }
 
-    public DoubleNode createCircleLinkedList(int num) {
+    public DoubleNode createCircleLinkedList(int[] array) {
         DoubleNode last = null;
-        for (int i = 1; i <= num; i++) {
-            last = add(i);
+        for (int a: array) {
+            last = add(a);
         }
         if (last == null) {
             return null;
