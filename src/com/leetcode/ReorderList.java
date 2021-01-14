@@ -19,19 +19,46 @@ package com.leetcode;
 public class ReorderList {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
-        show(linkedList.createLinkedList(6));
-
+        ListNode head = linkedList.createLinkedList(10000000);
+        show(head);
+        System.out.println();
+        reorderList(head);
     }
 
     public static void reorderList(ListNode head) {
+        if (head == null) {
+            System.out.println("链表为空");
+            return;
+        }
+        ListNode temp = head;
+        int len = 1;
+        while (temp.next != null) {
+            len++;
+            temp = temp.next;
+        }
+
         ListNode slow = head;
         ListNode rapid = head;
         int slowIndex = 0;
-        int rapidIndex = 0;
-        ListNode temp = null;
-        while(slow != null) {
-
+        if (slow.next == null) {
+            return;
         }
+        while(slow.next != null && slow.next.next != null) {
+            int move = len - 1 - slowIndex - 1;//rapid指向需要移动节点的前一个节点
+            while (move != 0) {
+                rapid = rapid.next;
+                move--;
+            }
+            temp = rapid.next;
+            rapid.next = temp.next;
+            temp.next = slow.next;
+            slow.next = temp;
+
+            slow = slow.next.next;
+            rapid = slow;
+            slowIndex += 2;
+        }
+        show(head);
     }
 
     public static void show(ListNode head) {
@@ -40,11 +67,12 @@ public class ReorderList {
             return;
         }
         ListNode temp = head;
-        while (temp != null) {
-            System.out.println(temp.val);
+        while (temp.next != null) {
+            System.out.printf("%d->", temp.val);
             temp = temp.next;
         }
-
+        System.out.printf("%d", temp.val);
+        System.out.println();
     }
 }
 
