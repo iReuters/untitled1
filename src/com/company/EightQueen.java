@@ -1,7 +1,7 @@
 package com.company;
 
 public class EightQueen {
-    private final int MAX = 15;
+    private final int MAX = 17;
     private int count = 0;
     private final int[] map = new int[MAX];
 
