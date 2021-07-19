@@ -75,7 +75,7 @@ class DoubleLinkedList{
         return head;
     }
 
-    public DoubleNode createCircleLinkedList(int @NotNull [] array) {
+    public DoubleNode createCircleLinkedList(int[] array) {
         DoubleNode last = null;
         for (int a: array) {
             last = add(a);
