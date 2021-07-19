@@ -13,28 +13,39 @@ public class BatchInsert {
         DatabaseMetaData metaData = connection.getMetaData();
         ResultSet resultSet = metaData.getTables(null, null, "university", null);
 
-        if(!resultSet.next()) {
-            sql = "create table university(id int primary key , name varchar(20), loc varchar(20), level varchar(20))";
-            ps = connection.prepareStatement(sql);
-        }
-
-        for (int i = 0; i < 4; i++) {
-            sql = "insert into university(id, name, loc, level) values(" + i + "," + name[i] + "," + loc[i] + "," + level[i] + ")";
-            System.out.println(sql);
-            ps = connection.prepareStatement(sql);
-            ps.executeUpdate(sql);
-        }
-        sql = "select * from university";
+//        if(!resultSet.next()) {
+//            sql = "create table university(id int primary key , name varchar(20), loc varchar(20), level varchar(20))";
+//            ps = connection.prepareStatement(sql);
+//            ps.executeUpdate();
+//        }
+//
+//        for (int i = 0; i < 4; i++) {
+//            sql = "insert into university(id, name, loc, level) values(" + i + "," + name[i] + "," + loc[i] + "," + level[i] + ")";
+//            System.out.println(sql);
+//            ps = connection.prepareStatement(sql);
+//            ps.executeUpdate(sql);
+//        }
+//        sql = "select * from university";
+//        ps = connection.prepareStatement(sql);
+//        ResultSet rs  = ps.executeQuery(sql);
+//
+//        while (rs.next()) {
+//            int id = rs.getInt("id");
+//            String name1 = rs.getString("name");
+//            String loc1 = rs.getString("loc");
+//            String level1 = rs.getString("level");
+//            System.out.println(id + " " + name1 + " " + loc1 + " " + level1);
+//        }
+        sql = "insert into university(id, name, loc, level) values(?,?,?,?)";
         ps = connection.prepareStatement(sql);
-        ResultSet rs  = ps.executeQuery(sql);
-
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String name1 = rs.getString("name");
-            String loc1 = rs.getString("loc");
-            String level1 = rs.getString("level");
-            System.out.println(id + " " + name1 + " " + loc1 + " " + level1);
+        for(int i = 4; i < 100; i++) {
+            ps.setInt(1, i);
+            ps.setString(2, "武大");
+            ps.setString(3, "武汉");
+            ps.setString(4, "985 211");
+            ps.addBatch();
         }
+        ps.executeBatch();
 
     }
 }

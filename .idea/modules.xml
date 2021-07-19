@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/JDBC开发演示/JDBC开发演示.iml" filepath="$PROJECT_DIR$/JDBC开发演示/JDBC开发演示.iml" />
       <module fileurl="file://$PROJECT_DIR$/JDBC预编译/JDBC预编译.iml" filepath="$PROJECT_DIR$/JDBC预编译/JDBC预编译.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled1.iml" filepath="$PROJECT_DIR$/untitled1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/事务控制/事务控制.iml" filepath="$PROJECT_DIR$/事务控制/事务控制.iml" />
     </modules>
   </component>
 </project>
