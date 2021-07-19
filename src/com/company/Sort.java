@@ -4,19 +4,20 @@ import java.util.Arrays;
 
 public class Sort {
     public static void main(String[] args) {
-        int size = 800000;
-        int[] arr = new int[size] ;
-        //int[] arr = new int[] {5, 1, 0, 4, 3};
-        for (int i = 0; i < size; i++) {
-            arr[i] = (int) (Math.random() * 1000);
-        }
+        int size = 5;
+//        int[] arr = new int[size] ;
+        int[] arr = new int[] {5, 1, 0, 4, 3};
+//        for (int i = 0; i < size; i++) {
+//            arr[i] = (int) (Math.random() * 1000);
+//        }
         Sort sort = new Sort();
         long start = System.currentTimeMillis();
         //sort.bubbleSort(arr);
         sort.insertSort(arr);
         long end = System.currentTimeMillis();
         System.out.println((end - start) / 1000.0);
-        //System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
+        
     }
 
     private void bubbleSort(int[] arr) {

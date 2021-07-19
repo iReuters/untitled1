@@ -1,7 +1,5 @@
 package com.company;
 
-import org.jetbrains.annotations.NotNull;
-
 public class JosephuCircle {
     public static void main(String[] args) {
         DoubleLinkedList list = new DoubleLinkedList();
